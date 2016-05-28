@@ -1,5 +1,4 @@
 $(function(){
-jQuery(document).ready(function ($) {
 
   $('#checkbox').change(function(){
     setInterval(function () {
@@ -18,32 +17,34 @@ jQuery(document).ready(function ($) {
 	
     $('#slider ul li:last-child').prependTo('#slider ul');
 
-    function moveLeft() {
+    function moveLeft(event) {
         $('#slider ul').animate({
             left: + slideWidth
         }, 200, function () {
             $('#slider ul li:last-child').prependTo('#slider ul');
             $('#slider ul').css('left', '');
-        });return false
+        });
+        event.preventDefault;
     };
 
-    function moveRight() {
+    function moveRight(event) {
+        console.log("hello");
         $('#slider ul').animate({
             left: - slideWidth
         }, 200, function () {
             $('#slider ul li:first-child').appendTo('#slider ul');
             $('#slider ul').css('left', '');
-        });
+        }); 
+        event.preventDefault;
     };
 
-    $('a.control_prev').click(function () {
-        moveLeft();
+    $('button.control_prev').click(function (e) {
+        moveLeft(e);
     });
 
-    $('a.control_next').click(function () {
-        moveRight();
+    $('button.control_next').click(function (e) {
+        moveRight(e);
     });
-
-});    
+   
 
 });

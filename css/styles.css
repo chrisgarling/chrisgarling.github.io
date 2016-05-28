@@ -5,6 +5,10 @@
   box-sizing: inherit;
 }
 
+.clearfix {
+  overflow:hidden;
+}
+
 body {
 		background: #fff;
 		font-family: 'Source Sans Pro', sans-serif;
@@ -35,19 +39,31 @@ body {
 		margin-bottom: 1em;
 	}
 
-	.container {
+  .logo{
+   left: 0;
+   top: 1em;
+   bottom: 10em;
+   text-align:left;
+   display:block;
+   float:left;
+  }
+
+/*	.container {
 		margin-left: auto;
 		margin-right: auto;
 		width: 960px;
 		width: 1200px;
-	}
+	}*/
 
 	#nav {
-				position: absolute;
+    float:right;
+    margin-right:2em;
+    margin-top:1em;
+			/*	position: absolute;
 				right: 0;
 				top: 1em;
 				right: 4em;
-				cursor: default;
+				cursor: default;*/
 			}
 
 				#nav > ul {
@@ -118,7 +134,7 @@ ul{
   line-height: 300px;
 }
 
-a.control_prev, a.control_next {
+button.control_prev, button.control_next {
   position: absolute;
   top: 40%;
   z-index: 999;
@@ -133,18 +149,21 @@ a.control_prev, a.control_next {
   font-size: 18px;
   opacity: 0.8;
   cursor: pointer;
+  outline:none;
+  border:0;
 }
 
-a.control_prev:hover, a.control_next:hover {
+button.control_prev:hover, button.control_next:hover {
   opacity: 1;
-  -webkit-transition: all 0.2s ease;
+  -webkit-transition: all 0.6s ease;
 }
 
-a.control_prev {
-  border-radius: 0 2px 2px 0;
+button.control_prev {
+	left: 0;
+  border-radius: 2px 0 0 2px;
 }
 
-a.control_next {
+button.control_next {
   right: 0;
   border-radius: 2px 0 0 2px;
 }
@@ -217,6 +236,47 @@ footer {
 	margin-top: -20px;
 }
 
+    .wrap {
+      overflow: hidden;
+      margin: 10px;
+    }
+    .box {
+      float: left;
+      position: relative;
+      width: 20%;
+      padding-bottom: 20%;
+    }
+    .boxInner {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: 10px;
+      bottom: 10px;
+      overflow: hidden;
+    }
+    .boxInner img {
+      width: 100%;
+    }
+    .boxInner .titleBox {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin-bottom: -50px;
+      background: #000;
+      background: rgba(0, 0, 0, 0.5);
+      color: #FFF;
+      padding: 10px;
+      text-align: center;
+      -webkit-transition: all 0.3s ease-out;
+      -moz-transition: all 0.3s ease-out;
+      -o-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+    div.no-touch .boxInner:hover .titleBox, div.touch .boxInner.touchFocus .titleBox {
+      margin-bottom: 0;
+    }
+
 /*==========  Mobile First Method  ==========*/
 
 /* Custom, iPhone Retina */ 
@@ -273,6 +333,35 @@ footer {
     
 }
 
+  @media only screen and (max-width : 480px) {
+      /* Smartphone view: 1 tile */
+      .box {
+        width: 100%;
+        padding-bottom: 100%;
+      }
+    }
+    @media only screen and (max-width : 650px) and (min-width : 481px) {
+      /* Tablet view: 2 tiles */
+      .box {
+        width: 50%;
+        padding-bottom: 50%;
+      }
+    }
+    @media only screen and (max-width : 1050px) and (min-width : 651px) {
+      /* Small desktop / ipad view: 3 tiles */
+      .box {
+        width: 33.3%;
+        padding-bottom: 33.3%;
+      }
+    }
+    @media only screen and (max-width : 1290px) and (min-width : 1051px) {
+      /* Medium desktop: 4 tiles */
+      .box {
+        width: 25%;
+        padding-bottom: 25%;
+      }
+    }
+   
 			
 
 
